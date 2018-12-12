@@ -1,0 +1,119 @@
+<!doctype>
+  <html lang="en">
+    <head>
+    <title> HashChg </title>
+      <meta charset="utf-8">
+      <meta http-equiv="Expires" content="0"/>
+      <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+      <meta http-equiv="Pragma" content="no-cache"/>
+      <style type="text/css">
+
+        * {
+            margin: 0;
+            padding: 0;
+          }
+
+      </style>
+    </head>
+    <body>
+
+      Name: <input id="txtName" type="text"   value="Max"  size="10">         <br>
+      Age:  <input id="txtAge"  type="Number" value=37     min="1" max="100"> <br><br>
+      Sex:  <input id="txtSex"  type="text"   value="Male" size="4">          <br>
+
+    </body>
+    <script>
+
+      // Events --------------------------------------
+
+      window.onload = ReadForm;
+
+      function ReadForm()
+      {
+        SetP("Name", txtName.value);
+        SetP("Age",  txtAge.value);
+        SetP("Sex",  txtSex.value);
+      }
+
+
+      window.onhashchange = WriteForm;
+
+      function WriteForm()
+      {
+        txtName.value = GetP("Name");
+        txtAge.value  = GetP("Age");
+        txtSex.value  = GetP("Sex");
+      }
+
+
+      txtName.oninput = function()
+      {
+        SetP("Name", txtName.value);
+      }
+
+      txtAge.oninput = function()
+      {
+        SetP("Age", txtAge.value);
+      }
+
+      txtSex.oninput = function()
+      {
+        SetP("Sex", txtSex.value);
+      }
+
+
+      // Set -----------------------------------------
+
+      function SetP(PName, PValue)
+      {
+        let objParams = GetParams();
+
+        if (PValue)
+        {
+          objParams[PName] = PValue;
+        }
+        else
+        {
+          delete objParams[PName];
+        }
+
+        SetParams(objParams);
+      }
+
+      function SetParams(objHash)
+      {
+        SetHash(JSON.stringify(objHash));
+      }
+
+      function SetHash(strHash)
+      {
+        location.hash = strHash; // top.location.hash
+      }
+
+
+      // Get -----------------------------------------
+
+      function GetP(PName)
+      {
+        return GetParams()[PName] || null;
+      }
+
+      function GetParams()
+      {
+        if (GetHash().replace('#', ''))
+        {
+          return JSON.parse(GetHash().replace('#', ''));
+        }
+        else
+        {
+          return {};
+        }
+      }
+
+      function GetHash()
+      {
+        return decodeURIComponent(location.hash); // top.location.hash
+      }
+
+    </script>
+  </html>
