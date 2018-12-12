@@ -1,0 +1,98 @@
+<!doctype html> <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title> ColorCNC </title></head><body> <div id="divCode" class="Container">
+
+
+%
+O1234 
+(This is a demo file)
+G10P0Z-3.12
+M420P200
+#1001=14
+N10 (Starting point) 
+G54T0415M8
+if [#1001EQ15] GOTO
+G0G97G99X1.2Y0Z-.1S2300M3P34 
+G1Z.784F.009
+G0X1.98
+Z-.2
+X1.13 
+N40 (Skip block)
+G1Z.640F.008
+G0X1.12 
+#1100=-1.4473(T3X)
+M30 (possibly 100s of lines...)
+%
+
+
+</div><!--============================--><style type="text/css">
+  /*   CSS   */
+            /* Reset */ * { margin: 0; padding: 0 }
+
+                    div { position: absolute;
+                          overflow-y: scroll;
+                          margin: 4px; padding: 4px }
+
+              code, pre { font-family: 'monospace';
+                          font-size:   3vw;
+                          font-weight: bold;
+                          line-height: 100% }
+
+                .M { color: rgb(215,  61,  14) }
+                .G { color: rgb(  7, 151,  34) }
+                .C { color: rgb(192, 192, 192) }
+                .N { color: rgb( 28,  31, 115) }
+                .B { color: rgb(240, 157, 174) }
+                .P { color: rgb(128, 120, 250) }
+                .L { color: rgb(170, 170,  75) }
+                .O { color: rgb(138,  15, 138) }
+                .I { color: rgb(234, 111, 120) }
+                .E { color: rgb(233, 154, 140) }
+
+        .Container { top: 10px;  left: 10px;
+                     bottom: 10px; right: 10px;
+                     background-color: #FFF; border-style: solid;
+                     border-width: 1px; border-color: gray }
+
+/*--------------------------------------------*/</style><script>
+  /*   JS    */
+
+window.onload = function()
+{
+  divCode.innerHTML = divCode.innerHTML
+    .replace(/<pre><code>/g, '')
+    .replace(/<\/code><\/pre>/g, '')
+    .replace(/(G[^OTO])/g, '<span class="G">$1</span>')
+    .replace(/M/g, '<span class="M">M</span>')
+    .replace(/(N\d+|GOTO)/g, '<span class="L">$1</span>')
+    .replace(/(EQ|GT|GE|LT)/g, '<span class="O">$1</span>')
+    .replace(/IF/g, '<span class="I">IF</span>')
+    .replace(/[^class]=/g, '<span class="E">=</span>')
+    .replace(/(\d+)/g, '<span class="N">$1</span>')
+    .replace(/(\[|\])/g, '<span class="B">$1</span>')
+    .replace(/#/g, '<span class="P">#</span>');
+
+  var Comments = divCode.innerHTML.match(/\((.*?)\)/g);
+
+  if (Comments != null)
+  {
+    Comments = Comments.map(
+                             s => s.replace(/<span class="\w{1}">/g, '')
+                                   .replace(/<\/span>/g, '')
+                           );
+
+    divCode.innerHTML = divCode.innerHTML.replace(/\((.*?)\)/g, '()');
+
+    Comments.forEach((s, i) =>
+    {
+        divCode.innerHTML = divCode.innerHTML
+            .replace('()', '<span class="C">' + s + '</span>')
+    });
+  }
+
+  divCode.innerHTML = '<pre><code>'
+                    + divCode.innerHTML
+                    + '</code></pre>';
+
+}
+
+/*--------------------------------------------*/</script></body></html>
