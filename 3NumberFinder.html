@@ -1,0 +1,109 @@
+<!doctype> <html> <meta charset="utf-8"> <head>   <style type="text/css">
+
+* { margin: 1; padding: 1 }
+
+/*===============================================*/ </style></head><body>
+
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                             &nbsp;&nbsp;
+Find this number:                                                  &nbsp;
+<input id="txtNumbToFind" type="text" size="10" value="100" />       <br>
+                                                                 <br><br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                             &nbsp;&nbsp;
+Number(s) found:                                                   &nbsp;
+<input id="txtNumbersFound" type="text" size="24" />             <br><br>
+
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                             &nbsp;&nbsp;
+
+<input id="btnFind" type="button" value="Find" onclick="btnFind_click()">
+																	 <br>
+As the sum                                                           <br>
+of any 2 or 3                                                        <br>
+of these numbers:                                                    <br>
+
+<textarea id="txtNumberList" rows="10" cols="10">
+89
+51
+49
+40
+3
+60
+10
+16
+31
+29</textarea>
+
+<!--==================================================--> </body><script>
+
+function btnFind_click()
+{
+  txtNumbersFound.value = "";
+
+  var NumsFoundAry = [];
+
+  var NumToFind = parseFloat(
+        txtNumbToFind.value.trim()
+                           .replace(/,/g, '')
+                           .replace(/\$/g,'')
+                                     ).toFixed(0)
+                                     * 1;
+  var NumberList =
+        txtNumberList.value.trim()
+                           .replace(/,/g, '')
+                           .replace(/\$/g,'')
+                           .split('\n')
+                           .map(v => parseFloat(v))
+                           .filter((v) => v)  // remove blank lines
+
+  var NumberListShort = NumberList.map(v => v.toFixed(0) * 1);
+
+  NumberListShort.forEach((Num1, Idx1, Ary1) => 
+  {
+      Ary1.forEach((Num2, Idx2, Ary2) =>
+      {
+          if (Num1 !== Num2 &&
+              parseInt(Num1, 10)
+            + parseInt(Num2, 10)
+           == parseInt(NumToFind, 10))
+          {
+              NumsFoundAry.push(  [NumberList[Idx1],
+                                   NumberList[Idx2]]
+                                  .map(v => v.toFixed(0))
+                                  .sort()
+                                  .join(' + ')
+                               );
+          }
+
+          Ary2.forEach((Num3, Idx3) =>
+          {
+              if (Num1 !== Num2 &&
+                  Num2 !== Num3 &&
+                  Num3 !== Num1 &&
+                  parseInt(Num1, 10)
+                + parseInt(Num2, 10)
+                + parseInt(Num3, 10)
+               == parseInt(NumToFind, 10))
+              {
+                  NumsFoundAry.push(  [NumberList[Idx1],
+                                       NumberList[Idx2],
+                                       NumberList[Idx3]]
+                                      .map(v => v.toFixed(0))
+                                      .sort()
+                                      .join(' + ')
+                                   );
+              }
+          });
+      });
+  });
+
+  txtNumbersFound.value = '' +
+      NumsFoundAry.filter((v, i, a) => a.indexOf(v) === i) // uniq
+                  .join(' , ');
+}
+
+/*====================================================*/ </script></html>
