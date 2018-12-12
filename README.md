@@ -7,6 +7,9 @@ self-contained code editor.  It doesn't have all the
 illustriousness of HighlightJS or any of the others but
 it's small and it works in a pinch.  (on mobiles too)
 
+Note:  This file has an embedded copy of the proggy
+tiny free font in the html as a data uri.
+
 The other file (G-code_hiliter.html) is a lightweight
 g-code version of the same thing.
 
