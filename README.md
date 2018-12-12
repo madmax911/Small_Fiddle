@@ -23,3 +23,5 @@ WebBarcode.html - Self-contained barcode label generator.
 Note:  It uses a modified version of the free 3 of 9
 barcode font.  I fixed the internal structure of this so
 it could become embedable in an html data uri font.
+
+HashSync.html - Store state object in URL hash (example).
