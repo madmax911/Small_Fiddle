@@ -10,8 +10,13 @@ it's small and it works in a pinch.  (on mobiles too)
 The other file (G-code_hiliter.html) is a lightweight
 g-code version of the same thing.
 
-3NumberFinder - Just a simple script that will identify
+3NumberFinder.html - Just a simple script that will identify
 missing numbers from a list given their sum.  Works for
 1, 2 and 3 numbers added.  Can be useful for accounting
 if you 'lost' a few numbers from a lust but have their
 sum.
+
+WebBarcode.html - Self-contained barcode label generator.
+Note:  It uses a modified version of the free 3 of 9
+barcode font.  I fixed the internal structure of this so
+it could become embedable in an html data uri font.
