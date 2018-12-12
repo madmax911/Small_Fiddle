@@ -1,0 +1,220 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title> Test </title>                    <style type="text/css">
+/*------------------------------------------------------------*/
+  /*   CSS   */
+            /* Reset */ * { margin: 0; padding: 0 } 
+
+                    div { position: absolute; box-sizing: border-box; }  
+                    
+         @font-face
+         {
+           font-family: 'MyProggyTiny';
+           font-style: normal;
+           font-weight: 400;
+           src: url("data:font/woff2;charset=utf-8;base64,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")
+               format('woff2');
+         }
+
+         #divResult,
+         textarea, code { font-family: 'MyProggyTiny';
+                          font-size:   12;
+                          line-height: 60% }
+
+                .FUNC { color: rgb(215,  61,  14) }
+                .KEYW { color: rgb(  7, 151,  34) }
+                .VALS { color: rgb(190,  48, 234) }
+                .INIT { color: rgb(225,  19,  33) }
+                .NUMS { color: rgb( 42,  48, 234) }
+                .QUOT { color: rgb(160, 196,  23) }
+                .COMM { color: rgb(192, 192, 192) }
+
+/*---------------------------------------*/</style></head><body>
+<div id="divText" style="top: 10px; left: 10px;
+                        bottom: 10px; width: calc(33% - 15px);
+                 background-color: #FFF; border-style: solid;
+                 border-width: 1px; border-color: gray"> &nbsp;
+
+  Source edit: <br>&nbsp;
+
+  <textarea id="txtSrc" style="top: 10px; left: 10px;
+                               width: calc(100% - 15px);
+                               height: calc(100% - 50px);">
+
+  Log("test1");  // Right pane
+  console.log("test2");
+  console.log("test4");
+
+  </textarea>
+  <br> &nbsp;
+  <button type="button" onclick="TestSrc()"> TEST! </button>
+  &nbsp;&nbsp;
+  <button type="button" onclick="ColorSrc()"> color </button>
+  <br><br>
+</div>
+
+<div id="divSrc" style="top: 10px; left: calc(33% + 5px);
+                        bottom: 10px; width: calc(33% - 15px);
+            background-color: #FFF; border-style: solid;
+            border-width: 1px; border-color: gray"> &nbsp;</div>
+
+<div id="divResult" style="top: 10px; right: 10px;
+                           bottom: 10px; width: calc(33% - 3px);
+            background-color: #FFF; border-style: solid;
+            border-width: 1px; border-color: gray"> &nbsp;<br>
+                                                      </div>
+<!--=================================================--><script>
+  /*   JS    */
+
+function OnLoad()
+{
+  //
+}
+
+/*--------------Support-code----------------------------------*/
+
+const HL_func =
+  "(alert|eval|isFinite|isNaN|parseFloat|parseInt|decodeURI|" +
+  "decodeURIComponent|throw|encodeURI|encodeURIComponent|" +
+  "escape|unescape|Object|Function|Boolean|Error|EvalError|" +
+  "InternalError|RangeError|ReferenceError|StopIteration|" +
+  "SyntaxError|TypeError|URIError|Number|Math|Date|String|" +
+  "RegExp|Array|Float32Array|Float64Array|Int16Array|" +
+  "Int32Array|Int8Array|Uint16Array|Uint32Array|Uint8Array|" +
+  "Uint8ClampedArray|ArrayBuffer|DataView|JSON|Intl|" +
+  "arguments|require|module|console|window|document|Symbol|" +
+  "Set|Map|WeakSet|WeakMap|Proxy|Reflect|Promise|fetch" +
+  ")";
+const HL_keyw =
+  "\\b(in|of|if|for|while|finally|do|void|else|break|catch|" +
+  "instanceof|with|default|try|this|switch|case|continue|" +
+  "typeof|delete|yield|export|super|debugger|as|async|await|" +
+  "static|import|from|as|length|forEach|filter|map|reduce|" +
+  "pop|push|shift|reverse|prototype|sort|fill|splice|slice|" +
+  "unshift|concat|includes|join|split|indexOf|toString|find|" +
+  "every|keys|reduceRight|some|values|then" +
+  ")\\b";
+const HL_vals = "(true|false|null|undefined|NaN|Infinity)";
+const HL_init =
+  "(=>|var|let|const|new|function|return|use strict|class|" +
+  "extends|constructor" +
+  ")";
+const HL_nums = "\\b[0-9]+\\b";
+              //   (Numbers)
+
+function HiLiteWord(Code, Class, Pattern)
+{
+  return Code.replace(RegExp(Pattern, "g"),
+                      "<SPAN CLASS='" + Class + "'>$&</SPAN>");
+}
+function ColorSrc()
+{
+  let NewSource = txtSrc.value.replace(/&gt;/g,">")
+                              .replace(/&lt;/g,"<");
+  
+  NewSource = HiLiteWord(NewSource, "FUNC", HL_func);
+  NewSource = HiLiteWord(NewSource, "INIT", HL_init);
+  NewSource = HiLiteWord(NewSource, "KEYW", HL_keyw);
+  NewSource = HiLiteWord(NewSource, "VALS", HL_vals);
+  NewSource = HiLiteWord(NewSource, "NUMS", HL_nums);
+
+  NewSource = NewSource
+   .replace(/>/g,"&gt;")
+   .replace(/</g,"&lt;");
+
+  NewSource = NewSource
+   .replace(/&lt;SPAN CLASS='FUNC'&gt;/g,"<SPAN CLASS='FUNC'>")
+   .replace(/&lt;SPAN CLASS='INIT'&gt;/g,"<SPAN CLASS='INIT'>")
+   .replace(/&lt;SPAN CLASS='KEYW'&gt;/g,"<SPAN CLASS='KEYW'>")
+   .replace(/&lt;SPAN CLASS='VALS'&gt;/g,"<SPAN CLASS='VALS'>")
+   .replace(/&lt;SPAN CLASS='NUMS'&gt;/g,"<SPAN CLASS='NUMS'>")
+   .replace(/&lt;SPAN CLASS='QUOT'&gt;/g,"<SPAN CLASS='QUOT'>")
+   .replace(/&lt;SPAN CLASS='COMM'&gt;/g,"<SPAN CLASS='COMM'>")
+   .replace(/&lt;\/SPAN&gt;/g,"</SPAN>");
+
+
+
+  var Strings = NewSource.match(/"(.*?)"/g);
+
+  if (Strings != null)
+  {
+    Strings = Strings.map(
+                           s => s.replace(/<SPAN CLASS='\w{4}'>/g,"")
+                                 .replace(/<\/SPAN>/,"")
+                         ); // Remove class/style spans
+
+    NewSource = NewSource.replace(/"(.*?)"/g, '""'); // remove string contents
+    
+    Strings.forEach((s, i) =>
+    {
+        NewSource = NewSource.replace('""', '<SPAN CLASS=\'QUOT\'>' + s + '</SPAN>')
+    });                               // Put strings back in
+    
+    NewSource = NewSource.replace(/"(.*?)"/g, "<SPAN CLASS='QUOT'>&quot;$1&quot;</SPAN>");
+                                       // Style them
+  }
+  
+
+
+  var Comments = NewSource.match(/\/\/.*\n/g);
+
+  if (Comments != null)
+  {
+    Comments = Comments.map(
+                             s => s.replace(/<SPAN CLASS='\w{4}'>/g,"")
+                                   .replace(/<\/SPAN>/,"")
+                           ); // Remove class/style spans
+
+    NewSource = NewSource.replace(/\/\/(.*)\n/g, '//\n'); // remove string contents
+    
+    Comments.forEach((s, i) =>
+    {
+        NewSource = NewSource.replace('//\n', '<SPAN CLASS=\'COMM\'>' + s + '\n</SPAN>')
+    });                               // Put strings back in (styled)
+  }
+
+
+
+  var Comment2 = NewSource.match(/\/\*.*\*\//g);
+
+  if (Comment2 != null)
+  {
+    Comment2 = Comment2.map(
+                             s => s.replace(/<SPAN CLASS='\w{4}'>/g,"")
+                                   .replace(/<\/SPAN>/,"")
+                           ); // Remove class/style spans
+
+    NewSource = NewSource.replace(/\/\*(.*)\*\//g, '/**/'); // remove string contents
+    
+    Comment2.forEach((s, i) =>
+    {
+        NewSource = NewSource.replace('/**/', '<SPAN CLASS=\'COMM\'>' + s + '</SPAN>')
+    });                               // Put strings back in (styled)
+  }
+
+  // A possible shorter version of the above...
+  // NewSource = NewSource.replace(/\/\*(.*)\*\//g, '/*$1*/');
+
+  NewSource = "<PRE><CODE>" + NewSource + "</CODE></PRE>";
+
+  divSrc.innerHTML = NewSource;
+}
+
+function TestSrc()
+{
+  eval(txtSrc.value);
+  // eval('alert(txtSrc.value)');
+}
+
+function PageLoad()
+{
+  ColorSrc();
+  OnLoad();
+}
+window.onload = PageLoad;
+
+function Log(strLog)
+{
+  divResult.innerHTML += " &nbsp;" + strLog + "<br>\r\n";
+}
+
+/*--------------------------------------------*/</script></body></html>
