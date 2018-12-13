@@ -1,0 +1,49 @@
+<!doctype><html>                    <meta charset="utf-8"><head>
+<title> Test </title>                    <style type="text/css">
+/*------------------------------------------------------------*/
+
+* { margin: 0; padding: 0 } 
+
+#canv { border: solid 1px black }
+
+/*---------------------------------------*/</style></head><body>
+
+<canvas id="canv" height="500" width="500"></canvas>
+
+<!--==========================================--></body><script>
+
+var objCanv = document.getElementById('canv');
+var objDraw = objCanv.getContext('2d');
+
+var [ Tx, Ty ] = [objCanv.width, objCanv.height];
+
+var [  x,  y ] = [ 239, 291 ];
+var [ dx, dy ] = [   5,   3 ];
+
+var s = 23;
+
+window.onload = function()
+{
+  objDraw.fillStyle = 'blue';
+  
+  Redraw();
+}
+
+function Redraw()
+{
+  objDraw.clearRect(0, 0, objCanv.width, objCanv.height);
+  
+  x += dx;
+  y += dy;
+  
+  console.log({"x":x, "y":y});
+  
+  if ( x < 0 || x + s > Tx) dx *= -1;
+  if ( y < 0 || y + s > Ty) dy *= -1;
+  
+  objDraw.fillRect(x, y, s, s);
+  
+  requestAnimationFrame(Redraw);
+}
+
+/*--------------------------------------------*/</script></html>

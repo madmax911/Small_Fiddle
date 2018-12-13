@@ -1,0 +1,51 @@
+<!doctype HTML><html><head><meta charset="utf-8">                 </head><body>
+<!--========================================================================-->
+
+<template id="Tmp">
+
+  <img src="data:image/gif;base64,R0lGODlhOAA
+  4ALMAANW6M//aPv///9C1LMqpBtCxGv7TGPv35f7XL+/PQOnclvzyxPjpq+LPcd3DRf7kdyH5BAAA
+  AAAALAAAAAA4ADgAAwT/UEhxqr04683t/IJDjGRpnmiqjg0oKQUgz3Rt33hOLK6wELmgcDgjHHoHI
+  BE3aDqf0KiM0JMol7VBIsDter/eYlVwxc604DR4MB2XzQC0eh5gAwrjgh0e39LVbE1jTXwycn9rdw
+  5jDntCAwWRemgIBpaXmJgIAQlsBS1VDTFEBQwKCgwOBQkIDwsMsLGysAsPCJ13oD2iRGwfMAkGPGM
+  fBwa4BQpjML0DvwTBw8QSDAaNADtjDG9MzhMK0MLTE7bXRmM/zc/R4xK2YsTcN4Lf4dLT723x6vXs
+  EwgAAwYMYKCOPjf8Xtj7YECgwC52qOwbQk+hPwkF6QTyNshRt3Xi/yZknBNoEbE4FDkKAHdRwMg0y
+  HSFGhWk4sqFIunEnMbrkUqWITGCGYhMGTFmPkHey2QpwINybAgwmLYtpdIPTxnc84HA3FYX6ZL2C0
+  oMKrYjxJJYHfu1Rz5s7eRl+YkTHwJ40+TSsAm0rQsuEeOutUh2zKZAeMbpEUsYrYRaBA0wNOhrHMq
+  aiS22snVJ4GRPJqepMgTJI6R1AQZ62cRw57ieAxowwEZg8el+c1iLLNoOabIJC0SNyHzTz+pLDyYY
+  QzZ1HINRv10okMmSS6WmDBxLMOa1Xdjo01hWcqodxAJrUctXUXvHaHhoCPx+qIZ3nBLwR+tqQxC4H
+  RlDMTSg3r1VxCwA2EH27VXACA64R6B5nDVEGXHTLJZFJLU1IE1fykUIkBeBAOCfAITkAAmDDIjCCi
+  yRfZhGSSNe00sklLg4h2vt9ITFIYjg+BpNS/D4B2/+IbWjcYgUIZ8LVZkhJBgJxFHiOf79YGEvSHa
+  RQCNOnLHggNqIUJtH8yDpgJSOnPhJcyMqpwBtV2aRQJRdesmgg21WEdyCcZK2ByR8apjnoG8OZ9qC
+  BDjA5qCMPiYchhmC2WijB0yX3aQfRAAAOw==" /> <br><br>
+
+  This is a section. <br><br>
+
+  <HR> <br>
+</template>
+
+<div id="Mesg"></div>
+
+<!--=========================================================--></body><script>
+
+window.onload = function()
+{
+  Mesg.innerHTML = "Scroll down to see more (infinite scrolling test)"
+                 + "<br><br><br><br><br><br><br><br><br><br><br><br><br>V"
+                 + "<br><br><br><br><br><br><br><br><br><br><br><br><br>V"
+                 + "<br><br><br><br><br><br><br><br><br><br><br><br><br>V";
+
+  Redraw();
+}
+
+function Redraw()
+{
+  if (window.innerHeight + window.scrollY >= document.body.scrollHeight)
+  {
+    Mesg.appendChild(document.getElementById('Tmp').content.cloneNode(true));
+  }
+  
+  requestAnimationFrame(Redraw);
+}
+
+/*-----------------------------------------------------------*/</script></html>
