@@ -28,3 +28,6 @@ HashSync.html - Store state object in URL hash (example).
 
 Canvas_bounce_example.html & Smooth_infinite_scroll_example.html
  - Uses requestAnimationFrame to make cool things happen.
+
+Screenly.html - Simple tool to compare app/page size to
+common resolutions.
