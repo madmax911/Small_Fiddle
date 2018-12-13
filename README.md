@@ -25,3 +25,6 @@ barcode font.  I fixed the internal structure of this so
 it could become embedable in an html data uri font.
 
 HashSync.html - Store state object in URL hash (example).
+
+Canvas_bounce_example.html & Smooth_infinite_scroll_example.html
+ - Uses requestAnimationFrame to make cool things happen.
