@@ -16,8 +16,8 @@ g-code version of the same thing.
 3NumberFinder.html - Just a simple script that will identify
 missing numbers from a list given their sum.  Works for
 1, 2 and 3 numbers added.  Can be useful for accounting
-if you 'lost' a few numbers from a lust but have their
-sum.
+if you 'lost' a few numbers from a list but have their
+sum.  A dark theme version is here:  <a href="https://github.com/madmax911/3_Number_Finder">3_Number_Finder</a>
 
 WebBarcode.html - Self-contained barcode label generator.
 Note:  It uses a modified version of the free 3 of 9
